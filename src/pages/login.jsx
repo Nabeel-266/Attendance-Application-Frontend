@@ -50,8 +50,8 @@ const login = () => {
 
           {/* Slogan Text */}
           <p className={`sloganText ${utilityStyles.sloganText}`}>
-            Effortless Access - Seamless Engagement <br /> Your Pathway to
-            Organized Attendance.
+            Effortless Access - Seamless Engagement <br /> Pathway to Organized
+            Attendance Record.
           </p>
 
           {/* Social Links */}

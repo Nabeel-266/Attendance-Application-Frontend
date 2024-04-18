@@ -19,6 +19,33 @@
     background-color: #f6f6f6;
   }
 
+  .scrollBar {
+    scrollbar-width: none;
+  }
+
+  .scrollBar:hover {
+    scrollbar-width: auto;
+  }
+
+  .scrollBar::-webkit-scrollbar {
+    width: 0.8rem;
+    display: none;
+  }
+
+  .scrollBar:hover::-webkit-scrollbar {
+    display: block;
+  }
+
+  .scrollBar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollBar::-webkit-scrollbar-thumb {
+    background-color: rgb(203 213 225);
+    border-radius: 10px;
+    cursor: grab;
+  }
+
   /* ----> Responsive Screen <---- */
 
   /* ----> Mobile Small <---- */
@@ -69,10 +96,10 @@
       font-size: 9.8px;
     }
   }
-
-  /* ----> Laptop Xtra Large OR Widescreen <---- */
-  /* @media (min-width: 1201px) {} */
-
-  /* ----> Landscape <---- */
-  /* @media (max-height: 500px) {} */
 }
+
+/* ----> Laptop Xtra Large OR Widescreen <---- */
+/* @media (min-width: 1201px) {} */
+
+/* ----> Landscape <---- */
+/* @media (max-height: 500px) {} */

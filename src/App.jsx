@@ -1,12 +1,12 @@
 // Import Pages
 // import Login from "./pages/login";
-import Dashboard from "./pages/dashboard";
+import AdminDashboard from "./pages/admin";
 
 function App() {
   return (
     <div className="app bg-login-bg-texture bg-no-repeat bg-cover bg-center relative">
       {/* <Login /> */}
-      <Dashboard />
+      <AdminDashboard />
     </div>
   );
 }
