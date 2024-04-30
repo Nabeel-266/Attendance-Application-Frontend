@@ -5,8 +5,16 @@ export default {
   theme: {
     extend: {
       screens: {
-        xs: "481px",
-        "2xs": "376px",
+        mobileSm: "320px",
+        mobileRg: "376px",
+        tabletSm: "480px",
+        tabletRg: "640px",
+        tabletLg: "768px",
+        laptopSm: "901px",
+        laptopRg: "1024px",
+        desktopSm: "1200px",
+        desktopRg: "1350px",
+        desktopLg: "1536px",
       },
     },
     fontFamily: {
@@ -15,7 +23,7 @@ export default {
       quick: ["'Quicksand'", "sans-serif"],
     },
     backgroundImage: {
-      "login-bg-texture": "url('/src/assets/login-bg.png')",
+      "texture-background": "url('/src/assets/login-bg.png')",
     },
   },
   plugins: [],

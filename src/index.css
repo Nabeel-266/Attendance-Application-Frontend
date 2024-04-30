@@ -19,29 +19,37 @@
     background-color: #f6f6f6;
   }
 
-  .scrollBar {
-    scrollbar-width: none;
-  }
-
-  .scrollBar:hover {
-    scrollbar-width: auto;
-  }
-
-  .scrollBar::-webkit-scrollbar {
+  /* Scrollbar Light */
+  .scrollbar-light::-webkit-scrollbar {
     width: 0.8rem;
     display: none;
   }
 
-  .scrollBar:hover::-webkit-scrollbar {
+  .scrollbar-light:hover::-webkit-scrollbar {
     display: block;
   }
 
-  .scrollBar::-webkit-scrollbar-track {
+  .scrollbar-light::-webkit-scrollbar-track {
     background: transparent;
   }
 
-  .scrollBar::-webkit-scrollbar-thumb {
-    background-color: rgb(203 213 225);
+  .scrollbar-light::-webkit-scrollbar-thumb {
+    background-color: rgb(75 85 99);
+    border-radius: 10px;
+    cursor: grab;
+  }
+
+  /* Scrollbar Dark */
+  .scrollbar-dark::-webkit-scrollbar {
+    width: 1rem;
+  }
+
+  .scrollbar-dark::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-dark::-webkit-scrollbar-thumb {
+    background-color: rgb(17 24 39);
     border-radius: 10px;
     cursor: grab;
   }

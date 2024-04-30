@@ -2,13 +2,11 @@ import React from "react";
 
 // Components
 import Sidebar from "../components/sidebar";
-import Panel from "../components/panel";
 
 const AdminDashboard = () => {
   return (
-    <div className="w-full min-h-dvh flex bg-slate-300">
+    <div className="w-full min-h-dvh flex bg-slate-200">
       <Sidebar />
-      <Panel />
     </div>
   );
 };

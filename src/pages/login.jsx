@@ -9,7 +9,7 @@ import linkedin from "../assets/linkedin.png";
 // Import Icons
 import { IoMail, IoLockClosed, IoLockOpen } from "react-icons/io5";
 
-const login = () => {
+const Login = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -227,7 +227,7 @@ const utilityStyles = {
   formRoleOptions: "text-[1.4rem] text-[#f6f6f6] font-semibold bg-gray-800",
 };
 
-export default login;
+export default Login;
 
 // #0873b9 => Blue
 // #0a639e => Blue
