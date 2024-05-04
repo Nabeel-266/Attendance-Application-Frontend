@@ -1,19 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 
-// Import React Icons
-import { FaBorderAll } from "react-icons/fa6";
-import { MdOutlineAddCircle } from "react-icons/md";
-import { TiThMenuOutline } from "react-icons/ti";
+// Components
+import Header from "./header";
+import Courses from "../screens/courses";
+import Batches from "../screens/batches";
+import Classes from "../screens/classes";
+import Students from "../screens/students";
+import Trainers from "../screens/trainers";
+import CourseDetails from "./course_details";
 
-// Import Components
-import Courses from "./courses";
-import { useLocation } from "react-router-dom";
+const Panel = ({ setSidebarState }) => {
+  return (
+    <div className="w-full laptopRg:w-[77%] desktopSm:w-[80%] h-dvh overflow-hidden">
+      <Header setSidebarState={setSidebarState} />
 
-const Panel = () => {
-  const location = useLocation();
-  console.log(location);
-
-  return <Courses />;
+      <Routes>
+        <Route path="courses" element={<Courses />} />
+        <Route path="batches" element={<Batches />} />
+        <Route path="classes" element={<Classes />} />
+        <Route path="students" element={<Students />} />
+        <Route path="trainers" element={<Trainers />} />
+        <Route path="courses/:courseTiltle" element={<CourseDetails />} />
+      </Routes>
+    </div>
+  );
 };
 
 export default Panel;

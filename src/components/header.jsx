@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useState } from "react";
 
 // Import React Icons
 import { MdClass } from "react-icons/md";
@@ -7,57 +7,72 @@ import { HiSquares2X2 } from "react-icons/hi2";
 import { FaUsers } from "react-icons/fa";
 import { BsPeopleFill } from "react-icons/bs";
 import { MdOutlineAddCircle } from "react-icons/md";
-import { TiThMenuOutline } from "react-icons/ti";
+import { CgMenuLeft } from "react-icons/cg";
 
-const Header = () => {
-  const location = useLocation();
-  const headerTitle = location.pathname.split("/")[2];
+const Header = ({ headerTitle, setSidebarState, shortHeaderTitle }) => {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  window.addEventListener("resize", () => {
+    setScreenWidth(window.innerWidth);
+  });
 
   return (
-    <header className="w-full h-[10%] relative z-50 flex justify-between items-center px-[2rem] bg-gray-900 shadow-[0px_2px_5px_#222]">
+    <header className="w-full h-[6rem] relative z-50 flex justify-between items-center px-[2%] bg-gray-900 shadow-[0px_2px_10px_rgb(17_24_39)]">
       <div className="flex items-center gap-[2.5rem]">
-        <TiThMenuOutline className="text-[#7bb434] text-[2.4rem] cursor-pointer laptopRg:hidden" />
+        <CgMenuLeft
+          className="text-white text-[3.4rem] leading-[3rem] cursor-pointer laptopRg:hidden"
+          onClick={() => setSidebarState((prvState) => !prvState)}
+        />
 
-        <div className="flex items-center gap-[1rem] text-white select-none">
-          {headerTitle === "courses" ? (
-            <MdClass className="text-[2.5rem]" />
-          ) : headerTitle === "batches" ? (
-            <FaLayerGroup className="text-[2.3rem]" />
-          ) : headerTitle === "classes" ? (
-            <HiSquares2X2 className="text-[2.7rem]" />
-          ) : headerTitle === "students" ? (
+        <div className="flex items-center gap-[0.8rem] text-white select-none">
+          {headerTitle === "Courses" ? (
+            <MdClass className="text-[2.7rem]" />
+          ) : headerTitle === "Batches" ? (
+            <FaLayerGroup className="text-[2.2rem]" />
+          ) : headerTitle === "Classes" ? (
+            <HiSquares2X2 className="text-[2.8rem]" />
+          ) : headerTitle === "Students" ? (
             <FaUsers className="text-[2.9rem]" />
-          ) : headerTitle === "trainers" ? (
-            <BsPeopleFill className="text-[2.5rem]" />
+          ) : headerTitle === "Trainers" ? (
+            <BsPeopleFill className="text-[2.6rem]" />
           ) : (
             ""
           )}
 
-          <span className="text-[2.5rem] leading-[2.2rem] font-semibold">
-            {`${headerTitle.charAt(0).toUpperCase()}${headerTitle
-              .slice(1)
-              .toLowerCase()}`}
+          <span className="text-[2.7rem] laptopRg:text-[2.6rem] font-semibold">
+            {headerTitle.length > 14
+              ? screenWidth >= 640
+                ? headerTitle
+                : shortHeaderTitle
+              : headerTitle}
           </span>
         </div>
       </div>
 
       <div className="flex items-center">
         <button
-          className="flex items-center gap-[0.3rem] bg-slate-200 text-gray-800 text-[1.7rem] 
-          leading-[1.7rem] font-medium px-[0.5rem] py-[0.4rem] rounded-md transition-all hover:bg-[#0a639e] hover:text-white active:scale-[0.98]"
+          className={`${
+            headerTitle === "Courses" ||
+            headerTitle === "Batches" ||
+            headerTitle === "Classes" ||
+            headerTitle === "Students" ||
+            headerTitle === "Trainers"
+              ? "block"
+              : "hidden"
+          } flex items-center gap-[0.3rem] bg-slate-200 text-gray-800 px-[0.5rem] py-[0.4rem] rounded-md transition-all hover:bg-[#0a639e] hover:text-white active:scale-[0.98]`}
         >
-          <MdOutlineAddCircle className="text-[2.2rem]" />{" "}
-          {headerTitle === "courses"
-            ? "Add Course"
-            : headerTitle === "batches"
-            ? "Add Batch"
-            : headerTitle === "classes"
-            ? "Add Class"
-            : headerTitle === "students"
-            ? "Add Student"
-            : headerTitle === "trainers"
-            ? "Add Trainer"
-            : ""}
+          <MdOutlineAddCircle className="text-[2.4rem] leading-[1.5rem]" />
+          <span className="text-[1.7rem] leading-[1.6rem] font-medium">
+            {headerTitle === "Courses"
+              ? "Add Course"
+              : headerTitle === "Batches"
+              ? "Add Batch"
+              : headerTitle === "Classes"
+              ? "Add Class"
+              : headerTitle === "Students"
+              ? "Add Student"
+              : headerTitle === "Trainers" && "Add Trainer"}
+          </span>
         </button>
       </div>
     </header>
