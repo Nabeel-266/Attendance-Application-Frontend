@@ -48,7 +48,7 @@ const Sidebar = ({ sidebarState, setSidebarState }) => {
       </header>
 
       {/* Sidebar Body */}
-      <div className="w-full h-[90%] px-[0.1rem] relative flex flex-col">
+      <div className="w-full h-[90%] relative flex flex-col">
         <div className="w-full h-[70%] pr-[0.6rem] pt-[1.5rem] pb-[1rem] overflow-auto scrollbar-light">
           <ul className="w-full flex flex-col gap-[0.8rem]">
             {[
@@ -90,8 +90,8 @@ const Sidebar = ({ sidebarState, setSidebarState }) => {
           </ul>
         </div>
 
-        <footer className="w-full px-[0.8rem] absolute z-50 bottom-0 right-0 bg-gray-800">
-          <ul className="w-full pt-[1rem] pb-[1.5rem] flex flex-col gap-[0.2rem] border-t-[2px] border-gray-900">
+        <footer className="w-full flex flex-col px-[0.8rem] pt-[1rem] pb-[1.5rem] absolute z-50 bottom-0 right-0 bg-gray-800">
+          <ul className="w-full pt-[1rem] pb-[0.5rem] flex flex-col gap-[0.2rem] border-t-[2px] border-gray-900">
             <li className="w-full relative flex items-center gap-[1.2rem] px-[1.2rem] py-[0.8rem] text-slate-100 cursor-pointer hover:rounded-full hover:bg-gray-900 transition-all">
               <FaUser className="text-[2.8rem] bg-white text-gray-800 p-[0.4rem] rounded-full" />
               <span className="text-[1.9rem] leading-[1.9rem] font-semibold">
@@ -105,12 +105,12 @@ const Sidebar = ({ sidebarState, setSidebarState }) => {
                 Settings
               </span>
             </li>
-
-            <li className="w-full relative flex items-center gap-[1.2rem] px-[1.2rem] py-[0.8rem] mt-[0.4rem] text-gray-900 bg-slate-200 cursor-pointer rounded-full transition-all hover:bg-slate-300 active:scale-95">
-              <RiLogoutCircleLine className="text-[2.8rem] bg-gray-800 text-white font-extrabold p-[0.5rem] rounded-full" />
-              <span className="text-[1.9rem] font-semibold">Logout</span>
-            </li>
           </ul>
+
+          <button className="w-full relative flex items-center gap-[1.2rem] px-[1.2rem] py-[0.8rem] mt-[0.4rem] text-gray-900 bg-slate-200 cursor-pointer rounded-full transition-all hover:bg-[#0a639e] hover:text-white active:scale-95:">
+            <RiLogoutCircleLine className="text-[2.8rem] bg-gray-800 text-white font-extrabold p-[0.5rem] rounded-full" />
+            <span className="text-[1.9rem] font-semibold">Logout</span>
+          </button>
         </footer>
       </div>
     </aside>

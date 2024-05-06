@@ -7,14 +7,15 @@ import { HiSquares2X2 } from "react-icons/hi2";
 import { FaUsers } from "react-icons/fa";
 import { BsPeopleFill } from "react-icons/bs";
 import { MdOutlineAddCircle } from "react-icons/md";
+import { TbArrowBackUp } from "react-icons/tb";
 import { CgMenuLeft } from "react-icons/cg";
 
-const Header = ({ headerTitle, setSidebarState, shortHeaderTitle }) => {
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+const Header = ({ headerTitle, setSidebarState }) => {
+  // const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
-  window.addEventListener("resize", () => {
-    setScreenWidth(window.innerWidth);
-  });
+  // window.addEventListener("resize", () => {
+  //   setScreenWidth(window.innerWidth);
+  // });
 
   return (
     <header className="w-full h-[6rem] relative z-50 flex justify-between items-center px-[2%] bg-gray-900 shadow-[0px_2px_10px_rgb(17_24_39)]">
@@ -25,7 +26,7 @@ const Header = ({ headerTitle, setSidebarState, shortHeaderTitle }) => {
         />
 
         <div className="flex items-center gap-[0.8rem] text-white select-none">
-          {headerTitle === "Courses" ? (
+          {headerTitle === "Courses" || "Course" ? (
             <MdClass className="text-[2.7rem]" />
           ) : headerTitle === "Batches" ? (
             <FaLayerGroup className="text-[2.2rem]" />
@@ -40,11 +41,7 @@ const Header = ({ headerTitle, setSidebarState, shortHeaderTitle }) => {
           )}
 
           <span className="text-[2.7rem] laptopRg:text-[2.6rem] font-semibold">
-            {headerTitle.length > 14
-              ? screenWidth >= 640
-                ? headerTitle
-                : shortHeaderTitle
-              : headerTitle}
+            {headerTitle}
           </span>
         </div>
       </div>
@@ -73,6 +70,21 @@ const Header = ({ headerTitle, setSidebarState, shortHeaderTitle }) => {
               ? "Add Student"
               : headerTitle === "Trainers" && "Add Trainer"}
           </span>
+        </button>
+
+        <button
+          onClick={() => window.history.back()}
+          className={`${
+            headerTitle === "Course" ||
+            headerTitle === "Batch" ||
+            headerTitle === "Class" ||
+            headerTitle === "Student" ||
+            headerTitle === "Trainer"
+              ? "block"
+              : "hidden"
+          } flex items-center bg-slate-200 text-gray-800 p-[2px] rounded-md transition-all hover:bg-[#0a639e] hover:text-white active:scale-[0.98]`}
+        >
+          <TbArrowBackUp className="text-[2.4rem] leading-[1.5rem]" />
         </button>
       </div>
     </header>

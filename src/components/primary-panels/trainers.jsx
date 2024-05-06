@@ -1,7 +1,7 @@
 // Import React Icons
 
 // Components
-import Header from "../components/header";
+import Header from "../header";
 
 const Trainers = ({ setSidebarState }) => {
   return (

@@ -6,12 +6,12 @@ import Login from "./pages/login";
 import AdminDashboard from "./pages/admin";
 
 // Components
-import Courses from "./screens/courses";
-import Batches from "./screens/batches";
-import Classes from "./screens/classes";
-import Students from "./screens/students";
-import Trainers from "./screens/trainers";
-import CourseDetails from "./components/course_details";
+import Courses from "./components/primary-panels/courses";
+import Batches from "./components/primary-panels/batches";
+import Classes from "./components/primary-panels/classes";
+import Students from "./components/primary-panels/students";
+import Trainers from "./components/primary-panels/trainers";
+import CourseDetails from "./components/secondary_panels/course_details";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

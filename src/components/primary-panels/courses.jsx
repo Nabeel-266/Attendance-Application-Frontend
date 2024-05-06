@@ -1,8 +1,8 @@
-import { Link, Outlet } from "react-router-dom";
-import courses from "../data/courses";
+import { Link } from "react-router-dom";
+import courses from "../../data/courses";
 
 // Components
-import Header from "../components/header";
+import Header from "../header";
 
 const Courses = ({ setSidebarState }) => {
   return (
@@ -23,23 +23,6 @@ const Courses = ({ setSidebarState }) => {
                   <span className="text-[2.6rem] laptopRg:text-[2.5rem] desktopSm:text-[2.6rem] font-semibold text-white bg-slate-900 px-[7%] text-center">
                     {`${name}`}
                   </span>
-
-                  {/* <div className="lowerContent px-[1.2rem] py-[1rem]">
-                  <ul className="text-[1.75rem] leading-[1rem] text-gray-800 flex flex-col gap-[1.3rem] font-medium list-none">
-                    <li className="flex items-center gap-[1rem]">
-                      <BsPeopleFill size="2rem" /> {trainers} Trainers
-                    </li>
-                    <li className="flex items-center gap-[1rem]">
-                      <FaUsers size="2rem" /> {students} Students
-                    </li>
-                    <li className="flex items-center gap-[1rem]">
-                      <FaLayerGroup size="1.8rem" /> {batches} Batches
-                    </li>
-                    <li className="flex items-center gap-[1rem]">
-                      <HiSquares2X2 size="1.8rem" /> {sections} Sections
-                    </li>
-                  </ul>
-                </div> */}
                 </section>
               </Link>
             );
