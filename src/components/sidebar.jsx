@@ -55,8 +55,8 @@ const Sidebar = ({ sidebarState, setSidebarState }) => {
               [MdClass, "Courses"],
               [FaLayerGroup, "Batches"],
               [HiSquares2X2, "Classes"],
-              [FaUsers, "Students"],
               [BsPeopleFill, "Trainers"],
+              [FaUsers, "Students"],
             ].map(([TabIcon, tabName], index) => {
               return (
                 <li

@@ -12,7 +12,7 @@ const Courses = ({ setSidebarState }) => {
         <Header headerTitle="Courses" setSidebarState={setSidebarState} />
 
         {/* Courses Body */}
-        <div className="w-full max-h-[90%] grid grid-cols-1 tabletSm:grid-cols-2 tabletLg:grid-cols-3 gap-[2.5rem] desktopSm:gap-[3rem] p-[3%] overflow-auto">
+        <div className="w-full max-h-[91%] grid grid-cols-1 tabletSm:grid-cols-2 tabletLg:grid-cols-3 gap-[2.5rem] desktopSm:gap-[3rem] p-[3%] overflow-auto">
           {courses.map(({ name }, index) => {
             return (
               <Link

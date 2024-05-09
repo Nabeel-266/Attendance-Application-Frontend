@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Link } from "react-router-dom";
 
 // Import React Icons
 import { MdClass } from "react-icons/md";
@@ -11,12 +11,6 @@ import { TbArrowBackUp } from "react-icons/tb";
 import { CgMenuLeft } from "react-icons/cg";
 
 const Header = ({ headerTitle, setSidebarState }) => {
-  // const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-
-  // window.addEventListener("resize", () => {
-  //   setScreenWidth(window.innerWidth);
-  // });
-
   return (
     <header className="w-full h-[6rem] relative z-50 flex justify-between items-center px-[2%] bg-gray-900 shadow-[0px_2px_10px_rgb(17_24_39)]">
       <div className="flex items-center gap-[2.5rem]">
@@ -47,6 +41,20 @@ const Header = ({ headerTitle, setSidebarState }) => {
       </div>
 
       <div className="flex items-center">
+        {headerTitle === "Courses" ? (
+          <HeaderButton title={headerTitle} value="add-course" />
+        ) : headerTitle === "Batches" ? (
+          <HeaderButton title={headerTitle} value="add-batch" />
+        ) : headerTitle === "Classes" ? (
+          <HeaderButton title={headerTitle} value="add-class" />
+        ) : headerTitle === "Students" ? (
+          <HeaderButton title={headerTitle} value="add-student" />
+        ) : (
+          headerTitle === "Trainers" && (
+            <HeaderButton title={headerTitle} value="add-trainer" />
+          )
+        )}
+
         <button
           className={`${
             headerTitle === "Courses" ||
@@ -54,40 +62,41 @@ const Header = ({ headerTitle, setSidebarState }) => {
             headerTitle === "Classes" ||
             headerTitle === "Students" ||
             headerTitle === "Trainers"
-              ? "block"
-              : "hidden"
+              ? "hidden"
+              : "block"
           } flex items-center gap-[0.3rem] bg-slate-200 text-gray-800 px-[0.5rem] py-[0.4rem] rounded-md transition-all hover:bg-[#0a639e] hover:text-white active:scale-[0.98]`}
-        >
-          <MdOutlineAddCircle className="text-[2.4rem] leading-[1.5rem]" />
-          <span className="text-[1.7rem] leading-[1.6rem] font-medium">
-            {headerTitle === "Courses"
-              ? "Add Course"
-              : headerTitle === "Batches"
-              ? "Add Batch"
-              : headerTitle === "Classes"
-              ? "Add Class"
-              : headerTitle === "Students"
-              ? "Add Student"
-              : headerTitle === "Trainers" && "Add Trainer"}
-          </span>
-        </button>
-
-        <button
-          onClick={() => window.history.back()}
-          className={`${
-            headerTitle === "Course" ||
-            headerTitle === "Batch" ||
-            headerTitle === "Class" ||
-            headerTitle === "Student" ||
-            headerTitle === "Trainer"
-              ? "block"
-              : "hidden"
-          } flex items-center bg-slate-200 text-gray-800 p-[2px] rounded-md transition-all hover:bg-[#0a639e] hover:text-white active:scale-[0.98]`}
         >
           <TbArrowBackUp className="text-[2.4rem] leading-[1.5rem]" />
         </button>
       </div>
     </header>
+  );
+};
+
+const HeaderButton = ({ title, value }) => {
+  return (
+    <button
+      className={`${
+        title === "Courses" ||
+        title === "Batches" ||
+        title === "Classes" ||
+        title === "Students" ||
+        title === "Trainers"
+          ? "block"
+          : "hidden"
+      } flex items-center gap-[0.3rem] bg-slate-200 text-gray-800 px-[0.5rem] py-[0.4rem] rounded-md transition-all hover:bg-[#0a639e] hover:text-white active:scale-[0.98]`}
+    >
+      <MdOutlineAddCircle className="text-[2.4rem] leading-[1.5rem]" />
+      <span className="text-[1.7rem] leading-[1.6rem] font-medium">
+        {value
+          .split("-")
+          .map(
+            (str) =>
+              str.charAt(0).toUpperCase() + "" + str.slice(1).toLowerCase()
+          )
+          .join(" ")}
+      </span>
+    </button>
   );
 };
 

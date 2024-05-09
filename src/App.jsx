@@ -35,10 +35,6 @@ function App() {
               element={<Courses setSidebarState={setIsSidebarOpen} />}
             />
             <Route
-              path="courses/:courseTitle"
-              element={<CourseDetails setSidebarState={setIsSidebarOpen} />}
-            />
-            <Route
               path="batches"
               element={<Batches setSidebarState={setIsSidebarOpen} />}
             />
@@ -53,6 +49,10 @@ function App() {
             <Route
               path="trainers"
               element={<Trainers setSidebarState={setIsSidebarOpen} />}
+            />
+            <Route
+              path="courses/:courseTitle"
+              element={<CourseDetails setSidebarState={setIsSidebarOpen} />}
             />
           </Route>
 
